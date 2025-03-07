@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Empleados</title>
+    <!-- Vinculación con CSS -->
+    <link rel="stylesheet" href="./CSS/stylesEmpleados.css">
+</head>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <label for="themeSwitch" class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+        <span class="theme-label">Modo Oscuro</span>
+    </div>
+
+    <div class="container cliente" id="loginContainer">
+        <div class="image-section" style="background-image: url('https://www.gentleman.excelsior.com.mx/wp-content/uploads/2019/03/G-BARRAS-01.jpg');">
+            <div class="overlay"></div>
+        </div>
+        <div class="login-section">
+            <h2>Bienvenido Empleado</h2>
+           
+            <form>
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+                <button type="button" class="register-btn" onclick="window.location.href='/Carpeta_logins/indexLogin.html'">Registrarse</button>
+
+                <p>¿Eres cliente? <a href="../Carpeta_clientes/index.html" id="toggleUser">Haz clic aquí</a></p>
+            </form>
+       
+    </div>
+
+    <!-- Vinculación con JavaScript -->
+    <script src="../Carpeta_empleados/JS/scriptsEmpleados.js"></script>
+</body>
+</html>
