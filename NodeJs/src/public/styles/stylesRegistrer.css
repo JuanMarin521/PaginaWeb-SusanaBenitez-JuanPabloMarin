@@ -1,87 +1,111 @@
-/* Reset */
-body, h2, p, input, button, select {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+/* Fondo dinámico */
+body.light-mode {
+    background: linear-gradient(135deg, #ffffff, #f0f8ff, #dbeafe, #e3f2fd);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #333;
 }
 
-/* General */
-body {
-    background: url('https://montearroyo.co/wp-content/uploads/2017/11/cafeteria-cafe-coffee-montearroyo-espacios-campestres-restaurante-bogota-alto-del-vino-colombia-restaurant-food.jpg') 
-    no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: background-color 0.3s;
-}
-
-/* Modo oscuro: oscurecer fondo y elementos */
 body.dark-mode {
-    background-color: #121212;
-    background-blend-mode: darken;
-}
-
-/* Contenedor del formulario */
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a, #121212);
+    background-size: 400% 400%;
+    animation: gradientAnimationDark 15s ease infinite;
+    color: #f5f5f5;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Modo oscuro para el contenedor */
-body.dark-mode .container {
-    background: #2b2b2b;
-    color: #fff;
-    
+/* Animación del fondo dinámico */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-/* Inputs y selects */
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+@keyframes gradientAnimationDark {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-/* Inputs y selects en modo oscuro */
-body.dark-mode input, 
-body.dark-mode select {
-    background: #444;
-    color: #fff;
-    border: 1px solid #777;
+/* Animaciones para los campos */
+.animated-input {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Botón de registro */
-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
+.animated-input:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
-    background: #45a049;
+/* Animaciones para el botón */
+.animated-button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Estilos para el selector de modo oscuro */
+.animated-button:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+}
+
+/* Animaciones para la tarjeta */
+.animated-box {
+    animation: fadeInBox 0.8s ease;
+}
+
+@keyframes fadeInBox {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ocultar y mostrar el campo de código de trabajador */
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botón de modo oscuro */
 .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
-    justify-content: left;
-    align-items: left;
-    margin-bottom: 10px;
-    gap: 5px;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
 }
 
-/* Interruptor de modo oscuro */
 .switch {
     position: relative;
     display: inline-block;
@@ -103,7 +127,7 @@ button:hover {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: .4s;
+    transition: background-color 0.4s ease, transform 0.4s ease;
     border-radius: 34px;
 }
 
@@ -115,19 +139,14 @@ button:hover {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: .4s;
+    transition: transform 0.4s ease;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: #4caf50;
+    background-color: #007bff;
 }
 
 input:checked + .slider:before {
     transform: translateX(24px);
-}
-
-/* Ocultar el campo de código de trabajador */
-.hidden {
-    display: none;
 }

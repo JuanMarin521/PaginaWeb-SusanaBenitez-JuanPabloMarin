@@ -1,20 +1,26 @@
 /* Reset */
-body, h2, p, input, button {
+body, h1, h2, p, input, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* General */
 body.light-mode {
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #ffffff, #f0f8ff, #dbeafe, #e3f2fd);    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
     color: #333;
 }
+
 body.dark-mode {
-    background-color: #333;
-    color: #f4f4f9;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a); /* Tonos oscuros */
+    color: #f5f5f5;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+
+
 
 .container {
     display: flex;
@@ -28,99 +34,243 @@ body.dark-mode {
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
     transition: all 0.5s ease;
-   
+    order: 2; /* Mueve la imagen al lado derecho */
 }
 
 .image-section .overlay {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-}
-
-.login-section {
-    flex: 1;
-    background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    transition: all 0.5s ease;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Sombra para separar visualmente */
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Botón de Registro */
-.register-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.image-section .welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-in-out;
 }
 
-.register-btn:hover {
-    background: #0056b3;
+.image-section .welcome-subtext {
+    font-size: 1.2rem;
+    font-weight: 400;
+    animation: slideIn 1.5s ease-in-out;
 }
 
-/* Oscurecer imágenes en modo oscuro */
-body.dark-mode .image-section {
-    filter: brightness(0.8); /* Reduce el brillo al 80% */
+/* Fondo dinámico para el login */
+.login-section {
+    flex: 1;
+    background: linear-gradient(135deg, #ffffff, #f0f8ff, #dbeafe, #e3f2fd);    background-size: 400% 400%; /* Para animación */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease; /* Transición más lenta */
+    animation: gradientAnimation 10s ease infinite; /* Animación del fondo */
+    order: 1; /* Mueve el login al lado izquierdo */
 }
 
+/* Fondo dinámico para el login en modo oscuro */
+body.dark-mode .login-section {
+    background: linear-gradient(135deg, #3b3b3b, #2c2c2c, #1a1a1a, #121212); /* Tonos oscuros */
+    background-size: 400% 400%; /* Para animación */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: gradientAnimationDark 15s ease infinite; /* Animación del fondo */
+}
 
-.login-section h2 {
+/* Animación del fondo dinámico */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animación del fondo dinámico en modo oscuro */
+@keyframes gradientAnimationDark {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.login-title {
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.login-section input {
-    width: 80%;
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.login-section button {
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
+.input-group input:focus {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.login-section button:hover {
-    background: #45a049;
+.btn-primary {
+    background-color: #007bff;
+    color: white;
 }
 
-.login-section p {
-    margin-top: 20px;
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* Animaciones de transición */
-.cliente .image-section {
-    order: 1;
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
 }
 
-.trabajador .image-section {
-    order: 2;
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
 }
 
-.trabajador .login-section {
-    order: 1;
+.worker-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
 }
 
+.worker-link a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-/* Responsividad para pantallas medianas (tabletas) */
+.worker-link a:hover {
+    color: #0056b3;
+}
+
+/* Botón de modo oscuro */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividad */
 @media (max-width: 1024px) {
     .container {
         flex-direction: column;
@@ -134,7 +284,6 @@ body.dark-mode .image-section {
     }
 }
 
-/* Responsividad para pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
     .container {
         flex-direction: column;
@@ -148,208 +297,16 @@ body.dark-mode .image-section {
         height: 60vh;
         box-shadow: none;
     }
-}
 
-/* Estilos del Botón de Modo Oscuro */
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: left;
-    gap: 5px;
-}
-
-.theme-toggle input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-/* Estilos del Switch de Modo Oscuro */
-.theme-toggle {
-    position: left ;
-    top: 20px;
-    left: 150px;
-    z-index: 10;
-    display: flex;
-    align-items: left;
-    gap: 10px;
-}
-
-/* Estilo del Switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-/* Estado Activo del Switch */
-input:checked + .slider {
-    background-color: #4caf50;
-}
-
-input:checked + .slider:before {
-    transform: translateX(24px);
-}
-
-/* Responsividad del Botón */
-@media (max-width: 600px) {
-    .theme-toggle {
-        top: 10px;
-        right: 10px;
+    .login-title {
+        font-size: 1.5rem;
     }
 
-    .switch {
-        width: 40px;
-        height: 20px;
+    .input-group input {
+        font-size: 0.9rem;
     }
 
-    .slider:before {
-        height: 16px;
-        width: 16px;
+    .btn {
+        font-size: 0.9rem;
     }
-}
-/* Reposicionar el Switch */
-.theme-toggle {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 10;
-}
-
-/* Ajuste del Texto */
-.theme-label {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .theme-toggle {
-        top: 10px;
-        left: 10px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .theme-label {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    .theme-toggle {
-        left: 5px;
-    }
-    
-    .theme-label {
-        display: none; /* Ocultamos el texto en pantallas muy pequeñas */
-    }
-}
-
-
-/* Estilo del Switch */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-/* Estado Activo del Switch */
-input:checked + .slider {
-    background-color: #4caf50;
-}
-
-input:checked + .slider:before {
-    transform: translateX(24px);
-}
-
-/* Modo Oscuro */
-body.dark-mode {
-    background-color: #2c2c2c;
-    color: #f5f5f5;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode .login-section {
-    background-color: #3b3b3b;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode input[type="text"],
-body.dark-mode input[type="password"] {
-    background-color: #4d4d4d;
-    color: #fff;
-    border: 1px solid #6d6d6d;
-}
-
-body.dark-mode .theme-label {
-    color: #f5f5f5;
 }

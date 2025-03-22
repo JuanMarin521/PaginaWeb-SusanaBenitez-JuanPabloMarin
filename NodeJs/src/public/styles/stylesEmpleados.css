@@ -1,19 +1,23 @@
 /* Reset */
-body, h2, p, input, button {
+body, h1, h2, p, input, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* General */
 body.light-mode {
-    background-color: #f4f4f9;
+    background: linear-gradient(135deg, #ffffff, #f0f8ff, #dbeafe, #e3f2fd);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
     color: #333;
 }
+
 body.dark-mode {
-    background-color: #333;
-    color: #f4f4f9;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    color: #f5f5f5;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -28,109 +32,173 @@ body.dark-mode {
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
     transition: all 0.5s ease;
+    order: 1; /* Mueve la imagen al lado derecho */
 }
 
 .image-section .overlay {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-}
-
-.login-section {
-    flex: 1;
-    background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    transition: all 0.5s ease;
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-.login-section h2 {
+.image-section .welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-in-out;
+}
+
+.image-section .welcome-subtext {
+    font-size: 1.2rem;
+    font-weight: 400;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.login-section {
+    flex: 1;
+    background: linear-gradient(135deg, #ffffff, #f0f8ff, #dbeafe, #e3f2fd);    background-size: 400% 400%; /* Para animación */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 1s ease; /* Transición más lenta */
+    animation: gradientAnimation 10s ease infinite; /* Animación del fondo */
+    order: 2; /* Mueve el login al lado izquierdo */
+}
+
+/* Fondo dinámico para el login en modo oscuro */
+body.dark-mode .login-section {
+    background: linear-gradient(135deg, #3b3b3b, #2c2c2c, #1a1a1a, #121212); /* Tonos oscuros */
+    background-size: 400% 400%; /* Para animación */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: gradientAnimationDark 15s ease infinite; /* Animación del fondo */
+}
+
+/* Animación del fondo dinámico */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animación del fondo dinámico en modo oscuro */
+@keyframes gradientAnimationDark {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.login-title {
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.login-section input {
-    width: 80%;
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.login-section button {
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
+.input-group input:focus {
+    border-color: #28a745; /* Verde */
+    background-color: #e8f5e9; /* Verde claro */
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.login-section button:hover {
-    background: #45a049;
+.btn-green {
+    background-color: #28a745; /* Verde */
+    color: white;
 }
 
-.login-section p {
-    margin-top: 20px;
+.btn-green:hover {
+    background-color: #218838; /* Verde más oscuro */
+    transform: scale(1.05);
 }
 
-/* Posicionamiento del contenido */
-.trabajador .image-section {
-    order: 1;
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
 }
 
-.trabajador .login-section {
-    order: 2;
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
 }
 
-/* Responsividad */
-@media (max-width: 1024px) {
-    .container {
-        flex-direction: column;
-    }
-    .image-section, .login-section {
-        width: 100%;
-        height: 50vh;
-        clip-path: none;
-    }
+.worker-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-    .container {
-        flex-direction: column;
-    }
-    .image-section {
-        height: 40vh;
-    }
-    .login-section {
-        height: 60vh;
-        box-shadow: none;
-    }
+.worker-link a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Posicionar el botón de modo oscuro a la derecha */
+.worker-link a:hover {
+    color: #0056b3;
+}
+
+/* Botón de modo oscuro */
 .theme-toggle {
     position: absolute;
     top: 20px;
-    right: 20px; /* Se mueve a la derecha */
+    right: 20px; /* Posiciona el botón en el lado derecho */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     z-index: 10;
-}
-
-.theme-label {
-    font-size: 14px;
-    color: #555;
 }
 
 .switch {
@@ -154,7 +222,7 @@ body.dark-mode {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: .4s;
+    transition: background-color 0.4s ease, transform 0.4s ease;
     border-radius: 34px;
 }
 
@@ -166,58 +234,77 @@ body.dark-mode {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: .4s;
+    transition: transform 0.4s ease;
     border-radius: 50%;
 }
 
+/* Cambios al activar el modo oscuro */
 input:checked + .slider {
-    background-color: #4caf50;
+    background-color: #28a745; /* Verde */
 }
 
 input:checked + .slider:before {
-    transform: translateX(24px);
+    transform: translateX(24px); /* Desplazamiento del botón */
 }
 
-body.dark-mode {
-    background-color: #2c2c2c;
-    color: #f5f5f5;
-    transition: background-color 0.3s, color 0.3s;
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-body.dark-mode .login-section {
-    background-color: #3b3b3b;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-body.dark-mode input[type="text"],
-body.dark-mode input[type="password"] {
-    background-color: #4d4d4d;
-    color: #fff;
-    border: 1px solid #6d6d6d;
+/* Responsividad */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .image-section,
+    .login-section {
+        width: 100%;
+        height: 50vh;
+        clip-path: none;
+    }
 }
 
-body.dark-mode .theme-label {
-    color: #f5f5f5;
-}
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
 
-/* Botón de Registro */
-.register-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+    .image-section {
+        height: 40vh;
+    }
 
-.register-btn:hover {
-    background: #0056b3;
-}
+    .login-section {
+        height: 60vh;
+        box-shadow: none;
+    }
 
-/* Oscurecer imágenes en modo oscuro */
-body.dark-mode .image-section {
-    filter: brightness(0.8); /* Reduce el brillo al 80% */
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+    .input-group input {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
 }

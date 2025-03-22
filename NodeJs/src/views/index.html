@@ -17,25 +17,28 @@
     </div>
     <div class="container cliente" id="loginContainer">
         <div class="image-section" style="background-image: url('https://montearroyo.co/wp-content/uploads/2017/11/cafeteria-cafe-coffee-montearroyo-espacios-campestres-restaurante-bogota-alto-del-vino-colombia-restaurant-food.jpg');">
-            <div class="overlay"></div>
+            <div class="overlay">
+                <h1 class="welcome-text">Bienvenido</h1>
+                <p class="welcome-subtext">Inicia sesión para disfrutar de nuestros servicios.</p>
+            </div>
         </div>
         <div class="login-section">
-            <h2>Bienvenido</h2>
-        
+            <h2 class="login-title">Inicia Sesión</h2>
             <form>
-                <input type="text" placeholder="Usuario" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">Ingresar</button>
-                <button type="button" class="register-btn" onclick="window.location.href='/register'">Registrarse</button>
-                <p>¿Eres trabajador? <a href="/empleados">Haz clic aquí</a></p>
+                <div class="input-group">
+                    <input type="text" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='/register'">Registrarse</button>
+                <p class="worker-link">¿Eres trabajador? <a href="/empleados">Haz clic aquí</a></p>
             </form>
         </div>
     </div>
 
-
-    
     <!-- Vinculación con JavaScript -->
-    <script src="../js/registerClientes-js"></script>
+    <script src="../js/registerClientes.js"></script>
 </body>
 </html>
-

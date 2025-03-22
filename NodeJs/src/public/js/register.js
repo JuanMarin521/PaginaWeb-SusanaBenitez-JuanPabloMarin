@@ -1,22 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const tipoUsuario = document.getElementById('tipoUsuario');
     const codigoTrabajadorContainer = document.getElementById('codigoTrabajadorContainer');
     const registroForm = document.getElementById('registroForm');
     const modoOscuroToggle = document.getElementById('modoOscuro'); // Toggle de modo oscuro
 
-    // ✅ Mostrar campo de código si se elige "Trabajador"
-    tipoUsuario.addEventListener('change', function() {
+    // ✅ Mostrar el campo de código de trabajador con animación
+    tipoUsuario.addEventListener('change', function () {
         if (tipoUsuario.value === 'trabajador') {
             codigoTrabajadorContainer.classList.remove('hidden');
+            codigoTrabajadorContainer.classList.add('fade-in');
         } else {
             codigoTrabajadorContainer.classList.add('hidden');
+            codigoTrabajadorContainer.classList.remove('fade-in');
         }
     });
 
     // ✅ Validación del formulario
-    registroForm.addEventListener('submit', function(event) {
+    registroForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        
+
         const nombre = document.getElementById('nombre').value.trim();
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
@@ -48,20 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cambiar el modo oscuro y guardar en localStorage
     if (modoOscuroToggle) {
-        modoOscuroToggle.addEventListener('change', function() {
+        modoOscuroToggle.addEventListener('change', function () {
             document.body.classList.toggle("dark-mode", modoOscuroToggle.checked);
             localStorage.setItem("dark-mode", modoOscuroToggle.checked ? "enabled" : "disabled");
         });
     }
-
-    // ✅ Agregar enlace de registro en páginas de inicio de sesión (sin duplicarlo)
-    const loginForms = document.querySelectorAll('.login-section form');
-    loginForms.forEach(form => {
-        if (!form.querySelector('.registro-link')) { // Evitar duplicados
-            const registroLink = document.createElement('p');
-            registroLink.classList.add('registro-link');
-            registroLink.innerHTML = "¿No tienes cuenta? <a href='../views/indexRegistrer'>Regístrate aquí</a>";
-            form.appendChild(registroLink);
-        }
-    });
 });
