@@ -8,7 +8,7 @@ const controllerRegistrer = {
         body('password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres'),
         body('tipoUsuario').isIn(['cliente', 'trabajador']).withMessage('El tipo de usuario no es válido'),
         body('codigoTrabajador').custom((value, { req }) => {
-            if (req.body.tipoUsuario === 'trabajador' && value !== 'REST123') {
+            if (req.body.tipoUsuario === 'trabajador' && value !== '123') {
                 throw new Error('Código de trabajador incorrecto');
             }
             return true;
