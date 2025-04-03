@@ -21,8 +21,8 @@ const promisePool = pool.promise();
 class UserRepository {
 
         // Simulación de la búsqueda de un usuario por cédula
-        async findByDocumentNumber(documentNumber) {
-            console.log(documentNumber)
+    async findByDocumentNumber(documentNumber) {
+        console.log(documentNumber)
             // Implementación que consulta en la base de datos
             // Retorna el usuario si existe, o null si no existe
            const[rows]= await promisePool.query('SELECT * FROM users WHERE documentNumber = ?', [documentNumber]);
@@ -35,10 +35,10 @@ class UserRepository {
             // Implementación que consulta en la base de datos
             // Retorna el usuario si existe, o null si no existe
             const[rows]= await promisePool.query('SELECT * FROM users WHERE username = ?', [username]);
-            return rows.length > 0 ? rows[0] : null;
+        return rows.length > 0 ? rows[0] : null;
 
-        }
-    
+    }
+
     
     async createUser(user) {
         const { fullName, documentType, documentNumber, email, phone, username, password } = user;
