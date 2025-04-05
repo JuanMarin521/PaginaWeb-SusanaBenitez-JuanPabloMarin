@@ -1,12 +1,12 @@
-const mysql = requiere ('mysql12');
+const mysql = require ('mysql2');
 
 //Configuracion de conexion MySQL
-const pool = mysql.CreatePool({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '',
     //Este es el nombre de la base de datos y asi deberá de llamarse
-    database: 'restauranteElectiva',
+    database: 'restaurante',
     // 
     waitForConnections: true,
     // cantidad de request a la vez
@@ -50,6 +50,7 @@ class UserRepository {
             );
             return { id: result.insertId, ...user };
         } catch (err) {
+            console.error("Error al insertar en la base de datos:", err.message);
             throw new Error(err.message);
         }
     }

@@ -1,4 +1,4 @@
-document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+document.getElementById('registroForm').addEventListener('submit', async function(event) {
     console.log("iniciando validaciones");
     event.preventDefault();
     
@@ -24,11 +24,13 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
 
     if (!validateDocumentNumber(documentNumber)) {
         showError('documentNumberError', 'El número de documento debe ser estrictamente un número.');
+        alert("El nombre completo no debe contener caracteres especiales no permitidos");
         isValid = false;
     }
 
     if (!validateEmail(email)) {
         showError('emailError', 'Ingrese un correo electrónico válido.');
+        alert("El número de documento debe ser estrictamente un número");
         isValid = false;
     }
 
@@ -75,8 +77,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
                     "phone": phone,
                     "username": username,
                     "password": password,
-                    "userType": userType,
-                    "workerCode": workerCode
+                    
                 })
             });
 
@@ -114,15 +115,6 @@ function validatePhone(phone) {
     return phoneRegex.test(phone);
 }
 
-function validateUsername(username) {
-    let usernameRegex = /^[a-zA-Z0-9_.-]+$/;
-    return usernameRegex.test(username);
-}
-
-function validatePassword(password) {
-    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
-}
 
 function clearErrors() {
     let errorMessages = document.querySelectorAll('.error-message');
@@ -133,4 +125,14 @@ function clearErrors() {
 
 function showError(elementId, message) {
     document.getElementById(elementId).innerText = message;
+}
+
+function validateUsername(username) {
+    let usernameRegex = /^[a-zA-Z0-9_.-]+$/;
+    return usernameRegex.test(username);
+}
+
+function validatePassword(password) {
+    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
 }

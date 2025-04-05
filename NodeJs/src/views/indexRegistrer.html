@@ -30,6 +30,14 @@
                         <input type="text" id="nombre" class="form-control animated-input" placeholder="Nombre" required>
                     </div>
                     <div class="col-md-6 mb-3">
+                        <label for="documentType">Tipo de Documento:</label>
+                        <select id="documentType" name="tipoDocumento" class="form-select animated-input" required>
+                            <option value="CC">Cédula de Ciudadanía (CC)</option>
+                            <option value="TI">Tarjeta de Identidad (TI)</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
                         <label for="documentNumber">Número de Documento:</label>
                         <input type="text" id="documentNumber" name="documentNumber" class="form-control animated-input" placeholder="Documento" required>
                         <div class="error-message" id="documentNumberError"></div>
@@ -51,7 +59,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control animated-input" placeholder="Constraseña" required>
+                        <input type="password" id="password" name="password" class="form-control animated-input" placeholder="Contraseña" required>
                         <div class="password-strength" id="passwordStrength"></div>
                         <div class="error-message" id="passwordError"></div>
                     </div>
@@ -61,8 +69,8 @@
                         <div class="error-message" id="confirmPasswordError"></div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="tipoUsuario" class="form-label">Registrarse como:</label>
-                        <select id="tipoUsuario" class="form-select animated-input">
+                        <label for="userType" class="form-label">Registrarse como:</label>
+                        <select id="userType" class="form-select animated-input">
                             <option value="cliente">Cliente</option>
                             <option value="trabajador">Trabajador</option>
                         </select>
@@ -82,6 +90,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Vinculación con el archivo JavaScript personalizado -->
     <script src="../js/register.js"></script>
-   
 </body>
 </html>

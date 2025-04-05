@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const registerController = require('../controllers/controllerRegistrer');
+const loginController = require('../controllers/controllerLogin');
 
 // Ruta para la página de inicio
 //Metodos de API
@@ -26,5 +27,7 @@ router.get('/register', (req, res) => {
 
 // Ruta para manejar POST /register
 router.post('/register', registerController.register);
+
+router.post('/login', loginController.login)
 
 module.exports = router;

@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const tipoUsuario = document.getElementById('tipoUsuario');
+    const tipoUsuario = document.getElementById('userType');
     const codigoTrabajadorContainer = document.getElementById('codigoTrabajadorContainer');
     const registroForm = document.getElementById('registroForm');
     const modoOscuroToggle = document.getElementById('modoOscuro'); // Toggle de modo oscuro
 
     // ✅ Mostrar el campo de código de trabajador con animación
-    tipoUsuario.addEventListener('change', function () {
-        if (tipoUsuario.value === 'trabajador') {
+    userType.addEventListener('change', function () {
+        if (userType.value === 'trabajador') {
             codigoTrabajadorContainer.classList.remove('hidden');
             codigoTrabajadorContainer.classList.add('fade-in');
         } else {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Validar código de trabajador
-        if (tipoUsuario.value === 'trabajador' && codigoTrabajador !== 'REST123') {
+        if (userType.value === 'trabajador' && codigoTrabajador !== 'REST123') {
             alert('Código de trabajador incorrecto.');
             return;
         }

@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleUser = document.getElementById('toggleUser');
+  
     const loginContainer = document.getElementById('loginContainer');
 
-    toggleUser.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginContainer.classList.toggle('trabajador');
-        loginContainer.classList.toggle('cliente');
-    });
 });
 
 

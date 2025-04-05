@@ -1,30 +1,25 @@
-const { body, validationResult } = require('express-validator');
+const path = require('path');
+const UserService = require('../public/services/userService');
 
-const controllerRegistrer = {
-    register: [
-        // Validaciones
-        body('nombre').notEmpty().withMessage('El nombre es obligatorio'),
-        body('email').isEmail().withMessage('El email no es válido'),
-        body('password').isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres'),
-        body('tipoUsuario').isIn(['cliente', 'trabajador']).withMessage('El tipo de usuario no es válido'),
-        body('codigoTrabajador').custom((value, { req }) => {
-            if (req.body.tipoUsuario === 'trabajador' && value !== '123') {
-                throw new Error('Código de trabajador incorrecto');
-            }
-            return true;
-        }),
+class RegisterController {
+    // Renderizar la página de registro
+    getRegisterPage(req, res) {
+        res.sendFile(path.join(__dirname, '../views/indexRegistrer.html'));
+    }
 
-        // Controlador
-        (req, res) => {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                return res.status(400).json({ errors: errors.array() });
-            }
-
-            // Simulación de registro exitoso
-            return res.status(200).json({ message: 'Registro exitoso' });
+    // Manejar el registro de usuarios
+    async register(req, res) {
+        try {
+            const userData = req.body;
+            console.log("Datos recibidos en el servidor:", userData); // Verifica los datos aquí
+            const user = await UserService.registerUser(userData);
+            console.log("Usuario registrado en la base de datos:", user); // Verifica el resultado aquí
+            res.status(201).json(user);
+        } catch (error) {
+            console.error("Error en el registro:", error.message);
+            res.status(400).json({ error: error.message });
         }
-    ]
-};
+    }
+}
 
-module.exports = controllerRegistrer;
+module.exports = new RegisterController();

@@ -46,13 +46,38 @@ body.dark-mode .card {
 }
 
 body.dark-mode .animated-input {
-    background-color: #3a3a3a;
-    border: 1px solid #555;
-    color: #f8f9fa;
+    background-color: #b6b6b6; /* Blanco lima */
+    border: 1px solid #fdfdfd;
+    color: #212529;
 }
 
 .animated-input:hover,
 .animated-input:focus {
+    transform: scale(1.05);
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Estilo para el campo de selección (tipo de documento) */
+.animated-select {
+    transition: all 0.3s ease;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #212529;
+    font-size: 1rem;
+}
+
+body.dark-mode .animated-select {
+    background-color: #b6b6b6; /* Blanco lima */
+    border: 1px solid #fdfdfd;
+    color: #212529;
+}
+
+.animated-select:hover,
+.animated-select:focus {
     transform: scale(1.05);
     border-color: #007bff;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
