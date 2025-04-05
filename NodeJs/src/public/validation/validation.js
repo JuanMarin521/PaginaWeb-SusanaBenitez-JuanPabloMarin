@@ -1,10 +1,10 @@
 document.getElementById('registroForm').addEventListener('submit', async function(event) {
-    console.log("iniciando validaciones");
+    console.log("Evento submit capturado"); // Verifica si llega aquí
     event.preventDefault();
-    
+    console.log("iniciando validaciones"); // Verifica si llega aquí
     clearErrors();
 
-    let fullName = document.getElementById('nombre').value;
+    let fullName = document.getElementById('fullName').value;
     let documentType = document.getElementById('documentType').value;
     let documentNumber = document.getElementById('documentNumber').value;
     let email = document.getElementById('email').value;
@@ -77,6 +77,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
                     "phone": phone,
                     "username": username,
                     "password": password,
+
                     
                 })
             });

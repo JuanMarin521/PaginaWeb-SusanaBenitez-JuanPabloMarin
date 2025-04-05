@@ -9,6 +9,9 @@ app.use(express.json());
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware para analizar datos de formularios
+app.use(express.urlencoded({ extended: true }));
+
 // Importar rutas
 const routes = require('./rout/routes');
 
