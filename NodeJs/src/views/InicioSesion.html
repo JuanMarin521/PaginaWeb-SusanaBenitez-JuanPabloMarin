@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Empleados</title>
+    <title>Login Restaurante</title>
     <!-- Vinculación con CSS -->
-    <link rel="stylesheet" href="../styles/stylesEmpleados.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body class="light-mode">
-    <!-- Botón de Modo Oscuro -->
     <div class="theme-toggle">
         <label for="themeSwitch" class="switch">
             <input type="checkbox" id="themeSwitch">
@@ -16,18 +15,13 @@
         </label>
         <span class="theme-label">Modo Oscuro</span>
     </div>
-
-    <!-- Contenedor Principal -->
     <div class="container cliente" id="loginContainer">
-        <!-- Sección de Imagen -->
-        <div class="image-section" style="background-image: url('../public/images/Empleados.jpg');">
+        <div class="image-section" style="background-image: url('../public/images/restaurante.jpg');">
             <div class="overlay">
                 <h1 class="welcome-text">Bienvenido</h1>
-                <p class="welcome-subtext">Accede a tu cuenta de empleado para gestionar tus tareas.</p>
+                <p class="welcome-subtext">Inicia sesión para disfrutar de nuestros servicios.</p>
             </div>
         </div>
-
-        <!-- Sección de Login -->
         <div class="login-section">
             <h2 class="login-title">Inicia Sesión</h2>
             <form>
@@ -37,14 +31,14 @@
                 <div class="input-group">
                     <input type="password" placeholder="Contraseña" required>
                 </div>
-                <button type="submit" class="btn btn-green">Ingresar</button>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
                 <button type="button" class="btn btn-secondary" onclick="window.location.href='/register'">Registrarse</button>
-                <p class="worker-link">¿Eres cliente? <a href="/">Haz clic aquí</a></p>
+                <p class="worker-link">¿Eres trabajador? <a href="/empleados">Haz clic aquí</a></p>
             </form>
         </div>
     </div>
 
     <!-- Vinculación con JavaScript -->
-    <script src="../js/registerEmpleados.js"></script>
+    <script src="../../public/js/registerClientes.js"></script>
 </body>
 </html>
