@@ -5,7 +5,7 @@ const UserService = require('../public/services/userService');
 class LoginController {
   // Renderizar la página de registro
   getLoginPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/login.html'));
+    res.sendFile(path.join(__dirname, '../views/InicioSesion.html'));
   };
 
   // Manejar el login de usuarios

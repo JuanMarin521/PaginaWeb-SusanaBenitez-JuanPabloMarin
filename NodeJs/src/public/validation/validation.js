@@ -1,7 +1,7 @@
 document.getElementById('registroForm').addEventListener('submit', async function(event) {
-    console.log("Evento submit capturado"); // Verifica si llega aquí
+    
     event.preventDefault();
-    console.log("iniciando validaciones"); // Verifica si llega aquí
+  
     clearErrors();
 
     let fullName = document.getElementById('fullName').value;
@@ -24,13 +24,13 @@ document.getElementById('registroForm').addEventListener('submit', async functio
 
     if (!validateDocumentNumber(documentNumber)) {
         showError('documentNumberError', 'El número de documento debe ser estrictamente un número.');
-        alert("El nombre completo no debe contener caracteres especiales no permitidos");
+        alert("El número de documento debe ser estrictamente un número");
         isValid = false;
     }
 
     if (!validateEmail(email)) {
         showError('emailError', 'Ingrese un correo electrónico válido.');
-        alert("El número de documento debe ser estrictamente un número");
+        alert("Ingrese un correo electrónico válido");
         isValid = false;
     }
 
@@ -83,10 +83,13 @@ document.getElementById('registroForm').addEventListener('submit', async functio
             });
 
             if (response.ok) {
+                console.log("Respuesta del servidor:", await response.json());
                 alert('Registro completado.');
-                document.getElementById('registrationForm').reset();
+                clearErrors();
+                document.getElementById('registroForm').reset();
             } else {
                 const result = await response.json();
+                console.log("Error del servidor:", result);
                 alert(result.error);
             }
         } catch (error) {

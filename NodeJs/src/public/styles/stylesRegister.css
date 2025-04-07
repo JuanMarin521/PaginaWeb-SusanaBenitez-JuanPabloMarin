@@ -1,14 +1,19 @@
-/* Fondo general */
+/* Fondo claro animado */
 body.light-mode {
     background: linear-gradient(120deg, #f8f9fa, #e9ecef);
-    color: #212529;
+    background-size: 200% 200%;
+    background-position: 0% 50%;
     animation: backgroundAnimation 10s infinite alternate;
+    color: #212529;
 }
 
+/* Fondo oscuro animado */
 body.dark-mode {
     background: linear-gradient(120deg, #1c1c1c, #2a2a2a);
-    color: #f8f9fa;
+    background-size: 200% 200%;
+    background-position: 0% 50%;
     animation: backgroundAnimation 10s infinite alternate;
+    color: #f8f9fa;
 }
 
 /* Animación del fondo */
@@ -27,15 +32,18 @@ body.dark-mode {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    max-width: 800px;
 }
 
+/* Tarjeta en modo oscuro */
 body.dark-mode .card {
-    background-color: #2e2e2e;
+    background-color: rgba(33, 37, 41, 0.95);
     color: #f8f9fa;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Animaciones para inputs */
+/* Inputs animados */
 .animated-input {
     transition: all 0.3s ease;
     border: 1px solid #ced4da;
@@ -45,39 +53,17 @@ body.dark-mode .card {
     color: #212529;
 }
 
+/* Inputs en modo oscuro */
 body.dark-mode .animated-input {
-    background-color: #b6b6b6; /* Blanco lima */
-    border: 1px solid #fdfdfd;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
     color: #212529;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Hover/focus animados */
 .animated-input:hover,
 .animated-input:focus {
-    transform: scale(1.05);
-    border-color: #007bff;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    outline: none;
-}
-
-/* Estilo para el campo de selección (tipo de documento) */
-.animated-select {
-    transition: all 0.3s ease;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #ffffff;
-    color: #212529;
-    font-size: 1rem;
-}
-
-body.dark-mode .animated-select {
-    background-color: #b6b6b6; /* Blanco lima */
-    border: 1px solid #fdfdfd;
-    color: #212529;
-}
-
-.animated-select:hover,
-.animated-select:focus {
     transform: scale(1.05);
     border-color: #007bff;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
@@ -92,11 +78,13 @@ body.dark-mode .animated-select {
     color: #ffffff;
 }
 
+/* Botón en modo oscuro */
 body.dark-mode .animated-button {
     background-color: #0056b3;
     color: #ffffff;
 }
 
+/* Hover botón */
 .animated-button:hover {
     transform: scale(1.05);
     background-color: #0056b3;
@@ -107,7 +95,7 @@ body.dark-mode .animated-button {
     display: none;
 }
 
-/* Estilo del switch de modo oscuro */
+/* Switch modo oscuro */
 .switch {
     position: relative;
     display: inline-block;
@@ -153,11 +141,19 @@ input:checked + .slider:before {
     transform: translateX(14px);
 }
 
-/* Mejor contraste para texto en modo oscuro */
+/* Mejor contraste para errores y etiquetas en modo oscuro */
 body.dark-mode .error-message {
     color: #ff6b6b;
 }
 
 body.dark-mode label {
     color: #f8f9fa;
+}
+
+/* Transiciones suaves para todos los elementos relevantes */
+body,
+.card,
+.animated-input,
+label {
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }

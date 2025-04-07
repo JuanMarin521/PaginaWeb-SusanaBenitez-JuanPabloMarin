@@ -1,4 +1,4 @@
-document.getElementById('registrationForm').addEventListener('submit', async function(event) {
+document.getElementById('login-section').addEventListener('submit', async function(event) {
     //console.log("iniciando validaciones");
     event.preventDefault();
     

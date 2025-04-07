@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const modoOscuroToggle = document.getElementById('modoOscuro'); // Inicializa la variable
 
     // ✅ Mostrar el campo de código de trabajador con animación
     userType.addEventListener('change', function () {
@@ -10,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
             codigoTrabajadorContainer.classList.remove('fade-in');
         }
     });
-
-  
 
     // ✅ Modo oscuro
     if (localStorage.getItem("dark-mode") === "enabled") {

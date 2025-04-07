@@ -34,6 +34,7 @@ class UserRepository {
            const[rows]= await promisePool.query('SELECT * FROM users WHERE documentNumber = ?', [documentNumber]);
             return rows.length > 0 ? rows[0] : null;
 
+            
         }
     
         // Simulación de la búsqueda de un usuario por nombre de usuario
