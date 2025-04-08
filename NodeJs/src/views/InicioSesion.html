@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Restaurante</title>
     <!-- Vinculación con CSS -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../public/styles/InicioSesion.css">
 </head>
 <body class="light-mode">
     <div class="theme-toggle">
@@ -16,7 +16,7 @@
         <span class="theme-label">Modo Oscuro</span>
     </div>
     <div class="container cliente" id="loginContainer">
-        <div class="image-section" style="background-image: url('../images/restaurante.jpg');">
+        <div class="image-section" style="background-image: url('../public/images/restaurante.jpg');">
             <div class="overlay">
                 <h1 class="welcome-text">Bienvenido</h1>
                 <p class="welcome-subtext">Inicia sesión para disfrutar de nuestros servicios.</p>
@@ -32,13 +32,13 @@
                     <input type="password" placeholder="Contraseña" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='/register'">Registrarse</button>
-                <p class="worker-link">¿Eres trabajador? <a href="/empleados">Haz clic aquí</a></p>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='Register.html'">Registrarse</button>
+                <p class="worker-link">¿Eres trabajador? <a href="LoginEmpleados.html">Haz clic aquí</a></p>
             </form>
         </div>
     </div>
 
     <!-- Vinculación con JavaScript -->
-    <script src="../js/registerClientes.js"></script>
+    <script src="../public/js/registerClientes.js"></script>
 </body>
 </html>
