@@ -1,5 +1,5 @@
 document.getElementById('login-section').addEventListener('submit', async function(event) {
-    //console.log("iniciando validaciones");
+    console.log("iniciando validaciones");
     event.preventDefault();
     
     clearErrors();

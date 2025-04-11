@@ -13,7 +13,24 @@ const loginController = require('../controllers/controllerLogin');
 //PATCH: se usa para actualizar parcialmente un recurso existente en el servidor
 
 router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/index.html'));
+});
+
+router.get('/clientes', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/InicioSesion.html'));
+});
+
+router.get('/menu', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/menu.html'));
+});
+router.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/contact.html'));
+});
+router.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/about.html'));
+});
+router.get('/reservation', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/reservation.html'));
 });
 
 // Ruta para la página de empleados

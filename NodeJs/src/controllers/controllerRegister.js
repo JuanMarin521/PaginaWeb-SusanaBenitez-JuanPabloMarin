@@ -11,12 +11,11 @@ class RegisterController {
     async register(req, res) {
         try {
             const userData = req.body;
-            console.log("Datos recibidos en el servidor:", userData); 
             const user = await UserService.registerUser(userData);
             console.log("Usuario registrado en la base de datos:", user); 
             res.status(201).json(user);
         } catch (error) {
-            console.error("Error en el registro:", error.message);
+            console.error("Error en el registro:"+ error.message);
             res.status(400).json({ error: error.message });
         }
     }

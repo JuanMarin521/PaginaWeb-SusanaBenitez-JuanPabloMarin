@@ -9,9 +9,6 @@ app.use(express.json());
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
 // Importar rutas
 const routes = require('./rout/routes');
 

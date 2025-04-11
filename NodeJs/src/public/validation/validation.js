@@ -137,6 +137,6 @@ function validateUsername(username) {
 }
 
 function validatePassword(password) {
-    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    let passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_-]{8,}$/;
     return passwordRegex.test(password);
 }

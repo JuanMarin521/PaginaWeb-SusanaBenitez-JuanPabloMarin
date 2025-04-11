@@ -11,10 +11,11 @@ class LoginController {
   // Manejar el login de usuarios
   async login(req, res) {
       try {
-          const userData = req.body;
-          //console.log("datos del body" + userData)
+  
+        const userData = req.body;
           const user = await UserService.loginUser(userData);
           res.status(201).json(user);
+
       } catch (error) {
           res.status(400).json({ error: error.message });
       }

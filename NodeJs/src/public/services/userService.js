@@ -22,8 +22,8 @@ class UserService {
 
     async loginUser(userData) {
         const { password, username } = userData;
-        //console.log(password)
-        //console.log(username)
+        console.log(password)
+        console.log(username)
         // Verificar si ya existe un usuario con el mismo username
         const existingUserByUsername = await UserRepository.findByUsername(username);
         console.log(existingUserByUsername)
