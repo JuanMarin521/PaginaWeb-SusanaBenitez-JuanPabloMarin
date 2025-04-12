@@ -68,7 +68,7 @@ body.dark-mode {
     text-align: center;
     padding: 20px;
     transition: all 0.5s ease;
-    order: 1; /* Mueve la imagen al lado derecho */
+    order: 2; /* Mueve la imagen al lado derecho */
 }
 
 .image-section .overlay {
@@ -112,7 +112,7 @@ body.dark-mode {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
     transition: all 1s ease;
     animation: gradientAnimation 10s ease infinite;
-    order: 2; /* Mueve el login al lado izquierdo */
+    order: 1; /* Mueve el login al lado izquierdo */
 }
 
 /* Modo oscuro para la sección de login */
@@ -128,7 +128,6 @@ body.dark-mode .login-section {
 .login-title {
     font-size: 2rem;
     margin-bottom: 20px;
-    animation: fadeIn 1s ease-in-out;
 }
 
 /* Grupos de entrada */
