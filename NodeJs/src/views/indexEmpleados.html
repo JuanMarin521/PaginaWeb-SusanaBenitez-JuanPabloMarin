@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Empleados</title>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+</head>
+<body>
+
+<header class="top-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="../images/logo.png" alt="Logo" />
+            </a>
+            <span class="navbar-text text-white">Panel de Empleados</span>
+        </div>
+    </nav>
+</header>
+
+<div class="container my-5">
+    <div class="row">
+
+        <!-- Inventario -->
+        <div class="col-md-4">
+            <h3>Inventario</h3>
+            <ul class="list-group" id="inventario-list">
+                <li class="list-group-item d-flex justify-content-between">
+                    Tomates <span class="badge badge-primary badge-pill">25 kg</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    Carne <span class="badge badge-primary badge-pill">12 kg</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    Cerveza <span class="badge badge-primary badge-pill">36 botellas</span>
+                </li>
+                <!-- Más productos... -->
+            </ul>
+        </div>
+
+        <!-- Mesas -->
+        <div class="col-md-8">
+            <h3>Estado de Mesas</h3>
+            <div class="row" id="mesas-container">
+                <!-- Ejemplo de mesa ocupada -->
+                <div class="col-md-6 mb-3">
+                    <div class="card border-danger">
+                        <div class="card-header bg-danger text-white">
+                            Mesa 1 - Ocupada
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Pedido:</strong></p>
+                            <ul>
+                                <li>Taco x2 - $5.00</li>
+                                <li>Cerveza x1 - $3.00</li>
+                            </ul>
+                            <p><strong>Total:</strong> $13.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplo de mesa libre -->
+                <div class="col-md-6 mb-3">
+                    <div class="card border-success">
+                        <div class="card-header bg-success text-white">
+                            Mesa 2 - Libre
+                        </div>
+                        <div class="card-body">
+                            <p>No hay pedidos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repetir según número de mesas -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer-area bg-f py-4 text-center text-white bg-dark">
+    <p class="mb-0">Panel exclusivo para personal autorizado &copy; 2025</p>
+</footer>
+
+<!-- JS Scripts -->
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/custom.js"></script>
+
+<!-- Puedes agregar lógica dinámica con JS más adelante -->
+</body>
+</html>

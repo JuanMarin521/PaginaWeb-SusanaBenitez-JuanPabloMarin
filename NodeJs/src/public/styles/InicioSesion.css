@@ -112,7 +112,7 @@ body.dark-mode {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
     transition: all 1s ease;
     animation: gradientAnimation 10s ease infinite;
-    order: 1; /* Mueve el login al lado izquierdo */
+    order: 1 /* Mueve el login al lado izquierdo */
 }
 
 /* Modo oscuro para la sección de login */

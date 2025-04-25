@@ -1,0 +1,85 @@
+/*-------------------------------------
+    ESTILO DE PÁGINA DE SERVICIOS
+--------------------------------------*/
+
+.services-section {
+    padding: 70px 0;
+    background-color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+}
+
+.services-section .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-section .section-title h2 {
+    font-size: 32px;
+    color: #010101;
+    font-weight: 500;
+}
+
+.services-section .section-title p {
+    font-size: 18px;
+    color: #767676;
+}
+
+.service-box {
+    text-align: center;
+    padding: 40px 25px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.service-box:hover {
+    border-color: #d65106;
+    box-shadow: 0 6px 20px rgba(214, 81, 6, 0.15);
+}
+
+.service-box i {
+    font-size: 40px;
+    color: #d65106;
+    margin-bottom: 20px;
+}
+
+.service-box h4 {
+    font-size: 20px;
+    color: #010101;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.service-box p {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.btn-orange {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    background-color: #d65106;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.btn-orange:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media only screen and (max-width: 767px) {
+    .service-box {
+        padding: 30px 20px;
+    }
+}

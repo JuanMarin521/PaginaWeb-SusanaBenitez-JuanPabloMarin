@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
 router.get('/clientes', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/InicioSesion.html'));
 });
-
 router.get('/menu', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/menu.html'));
 });
