@@ -22,7 +22,7 @@ document.getElementById('login-section').addEventListener('submit', async functi
             if (response.ok) {
                 alert('login completado.');
                 //document.getElementById('registrationForm').reset();
-                window.location.href = 'https://www.google.com';
+                window.location.href = '/reservation'
             } else {
                 const result = await response.json();
                 alert(result.error);
