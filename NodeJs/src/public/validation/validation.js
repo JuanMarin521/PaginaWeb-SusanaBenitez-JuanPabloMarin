@@ -53,7 +53,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
         isValid = false;
     }
 
-    let isTrabajador = workerCode === '123'; 
+    let isTrabajaDDdor = workerCode === '123'; 
 
     // Validar el tipo de usuario y el código de trabajador
    if (isTrabajador) {
