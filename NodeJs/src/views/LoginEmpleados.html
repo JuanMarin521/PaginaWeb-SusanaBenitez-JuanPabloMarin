@@ -28,14 +28,14 @@
             </div>
 
             <!-- Sección de Login -->
-            <div class ="login-section">
+            <div class ="loginTrabajador">
                 <h2 class="login-title">Inicia Sesión</h2>
-                <form class="loginEmpleados">
+                <form class="loginTrabajador" id="loginTrabajador">
                     <div class="input-group">
-                        <input type="text" placeholder="Usuario" required>
+                        <input type="text"  placeholder="Usuario" id ="username" required >
                     </div>
                     <div class="input-group">
-                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" id ="password" placeholder="Contraseña" required>
                     </div>
                     <button type="submit" class="btn btn-green">Ingresar</button>
                     <button type="button" class="btn btn-secondary" onclick="window.location.href='/register'">Registrarse</button>

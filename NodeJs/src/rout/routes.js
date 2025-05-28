@@ -4,6 +4,7 @@ const path = require('path');
 const registerController = require('../controllers/controllerRegister');
 const loginController = require('../controllers/controllerLogin');
 
+
 // Ruta para la página de inicio
 //Metodos de API
 //GET: se usa para traer recursos existentes
@@ -45,5 +46,9 @@ router.get('/register', (req, res) => {
 router.post('/register', registerController.register);
 
 router.post('/login', loginController.login)
+
+router.post('/loginEmpleados', loginController.loginEmpleados);
+
+
 
 module.exports = router;

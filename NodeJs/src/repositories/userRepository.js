@@ -48,12 +48,12 @@ class UserRepository {
 
     
     async createUser(user) {
-        const { fullName, documentType, documentNumber, email, phone, username, password } = user;
+        const { fullName, documentType, documentNumber, email, phone, username, password, isTrabajador } = user;
         try {
             const [result] = await promisePool.query(
-                `INSERT INTO users (fullName, documentType, documentNumber, email, phone, username, password) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)`,
-                [fullName, documentType, documentNumber, email, phone, username, password]
+                `INSERT INTO users (fullName, documentType, documentNumber, email, phone, username, password, isTrabajador) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+                [fullName, documentType, documentNumber, email, phone, username, password, isTrabajador]
             );
             return { id: result.insertId, ...user };
         } catch (err) {

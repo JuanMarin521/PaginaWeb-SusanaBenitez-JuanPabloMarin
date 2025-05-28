@@ -12,7 +12,6 @@ document.getElementById('registroForm').addEventListener('submit', async functio
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
     let confirmPassword = document.getElementById('confirmPassword').value;
-    let userType = document.getElementById('userType').value; // Tipo de usuario
     let workerCode = document.getElementById('codigoTrabajador')?.value; // Código de trabajador (puede ser opcional)
 
     let isValid = true;
@@ -55,8 +54,8 @@ document.getElementById('registroForm').addEventListener('submit', async functio
     }
 
     // Validar el tipo de usuario y el código de trabajador
-    if (userType === 'trabajador') {
-        if (!workerCode || workerCode !== '123') { // Cambia '123' por el código válido que desees
+   if (isTrabajador) {
+        if (!workerCode || workerCode !== '123') {
             showError('workerCodeError', 'El código de trabajador es incorrecto o no fue proporcionado.');
             isValid = false;
         }
@@ -77,6 +76,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
                     "phone": phone,
                     "username": username,
                     "password": password,
+                    "isTrabajador": isTrabajador,
 
                     
                 })
