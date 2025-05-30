@@ -42,6 +42,10 @@ router.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/Register.html'));
 });
 
+router.get('/nomina', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/registroHoras.html'));
+});
+
 // Ruta para manejar POST /register
 router.post('/register', registerController.register);
 

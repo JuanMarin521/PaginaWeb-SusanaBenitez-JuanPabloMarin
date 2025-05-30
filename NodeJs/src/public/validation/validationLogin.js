@@ -68,7 +68,7 @@ if (loginTrabajador) {
 
             if (response.ok) {
                 alert('Login completado (trabajador).');
-                window.location.href = 'https://www.google.com'; //Susana poner aqui el enlace a la página de inicio del trabajador
+                window.location.href = '/nomina'; //Susana poner aqui el enlace a la página de inicio del trabajador
             } else {
                 alert(result.error);
             }
