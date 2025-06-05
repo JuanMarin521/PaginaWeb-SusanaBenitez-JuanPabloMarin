@@ -3,6 +3,11 @@ const router = express.Router();
 const path = require('path');
 const registerController = require('../controllers/controllerRegister');
 const loginController = require('../controllers/controllerLogin');
+const horasController = require('../controllers/controllerHoras');
+const controllerHoras = require('../controllers/controllerHoras');
+
+
+
 
 
 // Ruta para la página de inicio
@@ -42,16 +47,20 @@ router.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../views/Register.html'));
 });
 
-router.get('/nomina', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/registroHoras.html'));
-});
-
 // Ruta para manejar POST /register
 router.post('/register', registerController.register);
 
 router.post('/login', loginController.login)
 
 router.post('/loginEmpleados', loginController.loginEmpleados);
+
+
+
+router.get('/nomina', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/registroHoras.html'));
+});
+
+router.post('/nomina', controllerHoras.guardarHoras); 
 
 
 
